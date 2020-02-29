@@ -1,2 +1,3 @@
 # TukanAPI
-tukandev.gq/api
+Just random api lol<br>
+Don't expect any source.
