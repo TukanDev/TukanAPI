@@ -1,0 +1,1615 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "TukanAPI",
+    "version": "1.0",
+    "description": "Multipurpose api!",
+    "contact": {
+      "email": "support@tukandev.xyz"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:6969/api/v1"
+    }
+  ],
+  "paths": {
+    "/effects/blur": {
+      "get": {
+        "summary": "/blur",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-blur",
+        "description": "Blur an image with specified density.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer",
+              "example": 420
+            },
+            "in": "query",
+            "name": "density",
+            "description": "How strong blur is",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png",
+              "format": ""
+            },
+            "in": "query",
+            "name": "url",
+            "description": "Image url",
+            "required": true
+          }
+        ],
+        "tags": [
+          "effects"
+        ]
+      },
+      "parameters": []
+    },
+    "/effects/invert": {
+      "get": {
+        "summary": "/invert",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-invert",
+        "description": "Invert image colors",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "description": "Image url",
+            "required": true
+          }
+        ]
+      }
+    },
+    "/effects/sepia": {
+      "get": {
+        "summary": "/sepia",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-sepia",
+        "description": "Apply sepia image effect on image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          }
+        ]
+      }
+    },
+    "/effects/dither": {
+      "get": {
+        "summary": "/dither",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-dither",
+        "description": "Apply dither image effect on image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          }
+        ]
+      }
+    },
+    "/effects/posterize": {
+      "get": {
+        "summary": "/posterize",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-posterize",
+        "description": "Apply posterize image effect on image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "example": 420
+            },
+            "in": "query",
+            "name": "level",
+            "required": true,
+            "description": "Level of the effect"
+          }
+        ]
+      }
+    },
+    "/effects/pixelate": {
+      "get": {
+        "summary": "/pixelate",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-pixelate",
+        "description": "Apply pixelate image effect on image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "example": 420
+            },
+            "in": "query",
+            "name": "density",
+            "required": true,
+            "description": "How strong pixelation is"
+          }
+        ]
+      }
+    },
+    "/effects/saturate": {
+      "get": {
+        "summary": "/saturate",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-saturate",
+        "description": "Apply saturate image effect on image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "example": 420
+            },
+            "in": "query",
+            "required": true,
+            "name": "intensity",
+            "description": "How strong saturation is"
+          }
+        ]
+      }
+    },
+    "/effects/desaturate": {
+      "get": {
+        "summary": "/desaturate",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-desaturate",
+        "description": "Apply desaturate image effect on image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "example": 420
+            },
+            "in": "query",
+            "required": true,
+            "name": "intensity",
+            "description": "How strong desaturation is"
+          }
+        ]
+      }
+    },
+    "/effects/shade": {
+      "get": {
+        "summary": "/shade",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-shade",
+        "description": "Apply shade image effect on image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "example": 420
+            },
+            "in": "query",
+            "required": true,
+            "name": "intensity",
+            "description": "How strong shading is"
+          }
+        ]
+      }
+    },
+    "/effects/whiteshade": {
+      "get": {
+        "summary": "/whiteshade",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-wshade",
+        "description": "Apply white shade image effect on image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "example": 420
+            },
+            "in": "query",
+            "required": true,
+            "name": "intensity",
+            "description": "How strong white shading is"
+          }
+        ]
+      }
+    },
+    "/effects/lighten": {
+      "get": {
+        "summary": "/lighten",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-lighten",
+        "description": "Apply lighten image effect on image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "example": 420
+            },
+            "in": "query",
+            "required": true,
+            "name": "intensity",
+            "description": "How strong lighten is"
+          }
+        ]
+      }
+    },
+    "/effects/darken": {
+      "get": {
+        "summary": "/darken",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-darken",
+        "description": "Apply darken image effect on image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "example": 420
+            },
+            "in": "query",
+            "required": true,
+            "name": "intensity",
+            "description": "How strong darken is"
+          }
+        ]
+      }
+    },
+    "/effects/redify": {
+      "get": {
+        "summary": "/redify",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-redify",
+        "description": "Mess with red component of rgb of an image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "example": 420
+            },
+            "in": "query",
+            "required": true,
+            "name": "intensity",
+            "description": "How strong red is"
+          }
+        ]
+      }
+    },
+    "/effects/greenify": {
+      "get": {
+        "summary": "/greenify",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-greenify",
+        "description": "Mess with green component of rgb of an image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "example": 420
+            },
+            "in": "query",
+            "required": true,
+            "name": "intensity",
+            "description": "How strong green is"
+          }
+        ]
+      }
+    },
+    "/effects/blueify": {
+      "get": {
+        "summary": "/blueify",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-blueify",
+        "description": "Mess with blue component of rgb of an image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "example": 420
+            },
+            "in": "query",
+            "required": true,
+            "name": "intensity",
+            "description": "How strong blue is"
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/effects/rgb": {
+      "get": {
+        "summary": "/rgb",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-rgb",
+        "description": "Mess with red, green, & blue components of rgb of an image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "example": 420
+            },
+            "in": "query",
+            "required": true,
+            "name": "r",
+            "description": "How strong red component is"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "example": 69
+            },
+            "in": "query",
+            "name": "g",
+            "required": true,
+            "description": "How strong green component is"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "example": 69420
+            },
+            "in": "query",
+            "name": "b",
+            "description": "How strong blue component is",
+            "required": true
+          }
+        ]
+      }
+    },
+    "/effects/magik": {
+      "get": {
+        "summary": "/magik",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-magik",
+        "description": "Apply magik image effect on image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          }
+        ]
+      }
+    },
+    "/effects/b&w": {
+      "get": {
+        "summary": "/b&w",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-bw",
+        "description": "Apply black & white image effect on image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          }
+        ]
+      }
+    },
+    "/effects/deepfry": {
+      "get": {
+        "summary": "/deepfry",
+        "tags": [
+          "effects"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Check example": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Check example"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "output": "Rendered image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "code": "69401",
+                      "message": "Authorization header is empty or invalid! You missing api token?"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-effects-deepfry",
+        "description": "Apply deepfry image effect on image",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://cdn.obrn.space/files/g5vuw.png"
+            },
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "description": "Image url"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {
+      "Token": {
+        "name": "Authorization",
+        "type": "apiKey",
+        "in": "header",
+        "description": ""
+      }
+    }
+  },
+  "security": [
+    {
+      "Token": []
+    }
+  ]
+}
